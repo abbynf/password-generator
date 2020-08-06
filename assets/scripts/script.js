@@ -22,6 +22,10 @@ function generatePassword() {
     var numbers = confirm("Would you like numbers in the password?");
     var specialChar = confirm("Would you like special characters in the password?");
 
+    if (lowerCase == false && upperCase == false && numbers == false && specialChar == false){
+        alert("No characters chosen. Please click \"generate password\" to try again");
+    }
+
    
     var options = [""]
 
@@ -46,15 +50,16 @@ function generatePassword() {
     // set up an empty array from the characters to go into
     var draft = [];
 
+        var yen = 10;
+
     // this for loop inserts random characters from the options array into the empty array
     for (i = 0; i < passwordLength; i++){
-        draft.push(options[Math.floor(Math.random()*4)]);
+        draft.push(options[Math.floor(Math.random()*options.length)]);
     }
 
-   
 
 
-
+  return draft.join("");
 
 
     // The issue where you left off: the above for loop prints out the random characters according to the input criteria, but 
